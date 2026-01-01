@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Chart App</title>
+    <link rel="stylesheet" href="frontend/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📈 Stock Chart Dashboard</h1>
+            <p>Stock price visualization</p>
+        </div>
+        
+        <div id="status" class="status disconnected">
+             Connecting to Firebase...
+        </div>
+
+        <div class="troubleshooting" id="troubleshootingPanel" style="display: none;">
+            <h3>🔧 Firebase Connection Troubleshooting</h3>
+            <p>If you're seeing connection issues, check these common solutions:</p>
+            <ul>
+                <li><strong>Database Rules:</strong> Make sure your Firebase rules allow read/write access</li>
+                <li><strong>Network:</strong> Check your internet connection and firewall settings</li>
+                <li><strong>Configuration:</strong> Verify your Firebase project settings are correct</li>
+            </ul>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <select id="stockSelect">
+                    <option value="AAPL">Apple (AAPL)</option>
+                    <option value="GOOGL">Google (GOOGL)</option>
+                    <option value="MSFT">Microsoft (MSFT)</option>
+                    <option value="TSLA">Tesla (TSLA)</option>
+                </select>
+                <select id="modelSelect">
+                    <option value="prophet">Prophet</option>
+                    <option value="xgboost">XGBoost</option>
+                    <option value="svr">SVR</option>
+                </select>
+                <button id="loadChart">Load Chart</button>
+            </div>
+            <!-- Removed: Real-time status display -->
+        </div>
+        
+        <div class="chart-container">
+            <div class="chart-title" id="chartTitle">Select a stock to view chart</div>
+            <div class="chart" id="chartArea">
+                <div class="no-data">
+                    <div class="no-data-icon">📊</div>
+                    <p>No data available. Click "Add Sample Data" to generate some test data.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK v9 (modular) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.22.0/firebase-app-compat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.22.0/firebase-database-compat.min.js"></script>
+    
+    <!-- Chart.js for visualization -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.22.0/firebase-app-compat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.22.0/firebase-database-compat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="frontend/firebase-config.js"></script>
+    <script src="frontend/firebase-data.js"></script>
+    <script src="frontend/chart.js"></script>
+    <script src="frontend/ui.js"></script>
+</body>
+</html>

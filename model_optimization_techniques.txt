@@ -1,0 +1,30 @@
+Optimization Techniques Used in Stock Forecasting Models
+=======================================================
+
+1. Prophet Model
+----------------
+- **Automatic Changepoint Detection:** Prophet automatically detects changepoints in time series data to model trend shifts.
+- **Seasonality Modeling:** Prophet optimizes seasonal components (daily, weekly, yearly) using Fourier series.
+- **Hyperparameter Tuning:** Parameters like changepoint_prior_scale and seasonality_prior_scale can be adjusted to control model flexibility and regularization.
+- **Robust Fitting:** Prophet uses Stan for Bayesian optimization, which helps avoid overfitting and improves generalization.
+
+2. XGBoost Model
+----------------
+- **Gradient Boosting Optimization:** XGBoost uses gradient boosting to iteratively improve predictions by minimizing a loss function.
+- **Regularization:** L1 (alpha) and L2 (lambda) regularization terms are used to prevent overfitting.
+- **Early Stopping:** Training can be stopped early if the validation score does not improve, saving computation and avoiding overfitting.
+- **Hyperparameter Tuning:** Parameters like n_estimators, learning_rate, max_depth, subsample, and colsample_bytree are tuned for best performance.
+- **Feature Engineering:** Lag features and rolling statistics are created to provide more predictive power.
+
+3. SVR (Support Vector Regression) Model
+----------------------------------------
+- **Kernel Selection:** The RBF kernel is used for non-linear mapping, which is optimized for the data.
+- **Hyperparameter Tuning:** Parameters like C (regularization), gamma (kernel coefficient), and epsilon (margin of tolerance) are tuned to balance bias and variance.
+- **Feature Scaling:** StandardScaler is used to normalize features, which is crucial for SVR optimization.
+- **Cross-Validation:** Data is split into training and testing sets to validate model performance and avoid overfitting.
+
+General Optimization Practices
+------------------------------
+- **Data Preprocessing:** Handling missing values and scaling features improves model convergence and accuracy.
+- **Model Evaluation:** Metrics like MSE, RMSE, and R2 are used to assess and compare model performance.
+- **Iterative Improvement:** Models are retrained and tuned based on evaluation results to achieve optimal forecasting accuracy.
